@@ -21,16 +21,18 @@ class BaseModel:
                 if key == '__class__':
                     continue
                 elif key == 'created_at':
-                    self.created_at = datetime.strptime(kwargs['created_at'], dtime_format)
+                    self.created_at = datetime.strptime(kwargs['created_at'],
+                                                        dtime_format)
                 elif key == 'updated_at':
-                    self.updated_at = datetime.strptime(kwargs['updated_at'], dtime_format)
+                    self.updated_at = datetime.strptime(kwargs['updated_at'],
+                                                        dtime_format)
                 else:
                     setattr(self, key, value)
         else:
             self.id = str(uuid.uuid4())
             self.created_at = datetime.now()
             self.updated_at = datetime.now()
-            models.storage.new(self)  # as instructed also in task 5 for new instance
+            models.storage.new(self)  # as instructed also in task 5
 
     def __str__(self):
         """Returns a readable string representation
