@@ -52,10 +52,17 @@ class BaseModel:
         """Returns a dictionary that contains all
         keys/values of the instance"""
 
-        clsName = self.__class__.__name__
-        my_dict = self.__dict__.copy()
-        my_dict['updated_at'] = self.updated_at.isoformat()
-        my_dict['created_at'] = self.created_at.isoformat()
-        my_dict['__class__'] = clsName
-
+        # clsName = self.__class__.__name__
+        # my_dict = self.__dict__.copy()
+        # my_dict['updated_at'] = self.updated_at.isoformat()
+        # my_dict['created_at'] = self.created_at.isoformat()
+        # my_dict['__class__'] = clsName
+        # OR
+        my_dict = dict()  # OR {}
+        my_dict['__class__'] = self.__class__.__name__
+        for key, value in self.__dict__.items():
+            if key in ('created_at', 'updated_at'):
+                my_dict[key] = value.isoformat()
+            else:
+                my_dict[key] = value
         return my_dict

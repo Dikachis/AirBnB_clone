@@ -44,9 +44,7 @@ class FileStorage:
             json.dump(new_dict, file)
 
     def reload(self):
-        """Deserializes the JSON file to __objects if it exists,
-        or to convert obj back to instance if json file exists
-        """
+        """Deserializes the file to __objects if it exists"""
         try:
             with open(type(self).__file_path, "r", encoding='utf-8') as file:
                 new_obj = json.load(file)
