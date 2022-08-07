@@ -15,3 +15,4 @@ Each task is linked and will help you to:
 * create all unittests to validate all our classes and storage engine.
 
 ### What’s a command interpreter?
+Do you remember the Shell? It’s exactly the same but limited to a specific use-case. In our case, we want to be able to manage the objects of our project:
