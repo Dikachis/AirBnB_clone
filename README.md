@@ -3,4 +3,5 @@
 ## Background Context
 ### Welcome to the AirBnB clone project!
 Before starting, please read the AirBnB concept page.
+[![]()](https://youtu.be/E12Xc3H2xqo)
 ##### First step: Write a command interpreter to manage your AirBnB objects.
