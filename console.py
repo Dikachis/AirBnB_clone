@@ -21,6 +21,8 @@ class HBNBCommand(cmd.Cmd):
 
     def emptyline(self):
         return False
+        # OR
+        # pass
 
 
 if __name__ == '__main__':
