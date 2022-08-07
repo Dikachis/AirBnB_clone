@@ -15,9 +15,6 @@ class HBNBCommand(cmd.Cmd):
     def do_quit(self, arg):
         print("Good Bye!")
         return True
-    
-    def help quit(self):
-        print("Quit command to exit the program")
 
     def do_empty_line(self):
         pass
