@@ -8,11 +8,11 @@ import cmd
 class HBNBCommand(cmd.Cmd):
     prompt = '(hbnb)  '
 
-    def do_EOF(self, arg):
+    def do_EOF(self, line):
         print("")
         return True
 
-    def do_quit(self, arg):
+    def do_quit(self, line):
         print("Good Bye!")
         return True
 
