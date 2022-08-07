@@ -21,3 +21,4 @@ Do you remember the Shell? It’s exactly the same but limited to a specific use
 * Retrieve an object from a file, a database etc…
 * Do operations on objects (count, compute stats, etc…)
 * Update attributes of an object
+* Destroy an object
