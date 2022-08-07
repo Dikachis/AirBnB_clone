@@ -9,7 +9,7 @@ import models
 class BaseModel:
     """Base class for all models"""
 
-    def __init__(self, *args, **kwargs):
+    def __init__(self, **kwargs):
         """Initialization of a Base instance.
         Args:
             - *args: list of arguments
@@ -39,7 +39,7 @@ class BaseModel:
         of BaseModel instances"""
 
         clsName = self.__class__.__name__
-        return "[{}] ({}) {}".format(clsName, str(self.id), (self.__dict__))
+        return "[{}] ({}) {}".format(clsName, self.id, self.__dict__)
 
     def save(self):
         """Updates the public instance attribute updated_at
