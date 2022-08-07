@@ -2,6 +2,22 @@
 
 import json
 from models.base_model import BaseModel
+from models.user import User
+from models.place import Place
+from models.state import State
+from models.city import City
+from models.amenity import Amenity
+from models.review import Review
+
+class_dict = {
+                "BaseModel": BaseModel,
+                "User": User,
+                "Place": Place,
+                "Amenity": Amenity,
+                "City": City,
+                "Review": Review,
+                "State": State
+                }
 
 
 class FileStorage:
@@ -28,10 +44,14 @@ class FileStorage:
             json.dump(new_dict, file)
 
     def reload(self):
-        """Deserializes the JSON file to __objects if it exists"""
+        """Deserializes the JSON file to __objects if it exists,
+        or to convert obj back to instance if json file exists
+        """
         try:
-            with open(type(self).__file_path, encoding='utf-8') as file:
-                for obj in json.load(file).values():
-                    self.new(eval(obj["__class__"])(**obj))
+            with open(type(self).__file_path, "r", encoding='utf-8') as file:
+                new_obj = json.load(file)
+                for key, val in new_obj.items():
+                    obj = class_dict[val['__class__']](**val)
+                    type(self).__objects[key] = obj
         except FileNotFoundError:
             return
