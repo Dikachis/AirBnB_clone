@@ -171,9 +171,9 @@ class HBNBCommand(cmd.Cmd):
     def do_update(self, line):
         """Update a class instance of a given id by adding or updating
         a given attribute key/value pair or dictionary.
-            usage:  update <class> <id> <attribute_name> <attribute_value> or
-                    <class>.update(<id>, <attribute_name>, <attribute_value>) or
-                    <class>.update(<id>, <dictionary>)
+        usage:  update <class> <id> <attribute_name> <attribute_value> or
+                <class>.update(<id>, <attribute_name>, <attribute_value>) or
+                <class>.update(<id>, <dictionary>)
         """
         arr = line.split()
         if len(arr) < 1:
@@ -199,6 +199,7 @@ class HBNBCommand(cmd.Cmd):
             else:
                 setattr(storage.all()[new_str], arr[2], arr[3])
                 storage.save()
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
