@@ -7,12 +7,12 @@ import models
 from models.base_model import BaseModel
 from models import storage
 import json
-# from models.user import User
-# from models.place import Place
-# from models.state import State
-# from models.city import City
-# from models.amenity import Amenity
-# from models.review import Review
+from models.user import User
+from models.place import Place
+from models.state import State
+from models.city import City
+from models.amenity import Amenity
+from models.review import Review
 
 
 class HBNBCommand(cmd.Cmd):
@@ -39,18 +39,18 @@ class HBNBCommand(cmd.Cmd):
         # OR
         # pass
 
-#    def do_create(self, line):
-#        """Creates a new instances of a class"""
-#        if line:
-#            try:
-#                glo_cls = globals().get(line, None)
-#                obj = glo_cls()
-#                obj.save()
-#                print(obj.id)  # print the id
-#            except Exception:
-#                print("** class doesn't exist **")
-#        else:
-#            print("** class name missing **")
+    # def do_create(self, line):
+    #    """Creates a new instances of a class"""
+    #    if line:
+    #        try:
+    #            glo_cls = globals().get(line, None)
+    #            obj = glo_cls()
+    #            obj.save()
+    #            print(obj.id)  # print the id
+    #        except Exception:
+    #            print("** class doesn't exist **")
+    #    else:
+    #        print("** class name missing **")
 
     # OR
     def do_create(self, line):
