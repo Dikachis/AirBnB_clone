@@ -17,6 +17,7 @@ from models.review import Review
 
 class HBNBCommand(cmd.Cmd):
     prompt = '(hbnb)  '
+    intro = "Welcome! Type ? to list commands"
 
     def do_EOF(self, line):
         """Exits console"""
@@ -38,30 +39,30 @@ class HBNBCommand(cmd.Cmd):
         # OR
         # pass
 
-    def do_create(self, line):
-        """Creates a new instances of a class"""
-        if line:
-            try:
-                glo_cls = globals().get(line, None)
-                obj = glo_cls()
-                obj.save()
-                print(obj.id)  # print the id
-            except Exception:
-                print("** class doesn't exist **")
-        else:
-            print("** class name missing **")
+#    def do_create(self, line):
+#        """Creates a new instances of a class"""
+#        if line:
+#            try:
+#                glo_cls = globals().get(line, None)
+#                obj = glo_cls()
+#                obj.save()
+#                print(obj.id)  # print the id
+#            except Exception:
+#                print("** class doesn't exist **")
+#        else:
+#            print("** class name missing **")
 
     # OR
-    # def do_create(self, line):
-    #   """Create command creates a new instance of BaseModell"""
-    #   if not line:
-    #        print("** class name missing **")
-    #    elif line not in storage.class_dict():
-    #        print("** class doesn't exist **")
-    #    else:
-    #        new_obj = eval(line)()
-    #        new_obj.save()
-    #       print(new_obj.id)
+    def do_create(self, line):
+        """Create command creates a new instance of BaseModell"""
+        if not line:
+            print("** class name missing **")
+        elif line not in storage.class_dict():
+            print("** class doesn't exist **")
+        else:
+            new_obj = eval(line)()
+            new_obj.save()
+            print(new_obj.id)
 
     def do_show(self, line):
         """print <class name> <id>"""
