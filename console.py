@@ -65,42 +65,6 @@ class HBNBCommand(cmd.Cmd):
     #        new_obj.save()
     #       print(new_obj.id)
 
-    # OR
-    # def do_create(self, line):
-    #    """Creates a new instances of a class"""
-    #    if not line:
-    #        print("** class name missing **")
-    #        return
-
-    #    kclass = globals().get(line, None)
-    #    if kclass is None:
-    #        print("** class doesn't exist **")
-    #        return
-
-    #    obj = kclass()
-    #    obj.save()
-    #    print(obj.id)  # print the id
-
-    # OR
-    # def do_create(self, line):
-        # """Creates a new instances of a class"""
-        # if not line:
-        #    print("** class name missing **")
-        #    return
-
-        # obj = None
-        # if line == "BaseModel":
-        #    obj = BaseModel()
-        # elif line == "User":
-        #    obj = User()
-        # elif line == "State":
-        #    obj = State()
-        # else:
-        #    print("** class doesn't exist **")
-        #    return
-
-        # obj.save()
-        # print(obj.id)
 
     def do_show(self, line):
         """print <class name> <id>"""
