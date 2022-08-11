@@ -3,7 +3,6 @@
 """An interactive shell?"""
 
 import cmd
-from posixpath import split
 import models
 from models.base_model import BaseModel
 from models import storage
@@ -64,7 +63,6 @@ class HBNBCommand(cmd.Cmd):
     #        new_obj = eval(line)()
     #        new_obj.save()
     #       print(new_obj.id)
-
 
     def do_show(self, line):
         """print <class name> <id>"""
