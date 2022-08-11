@@ -17,7 +17,6 @@ from models.review import Review
 
 class HBNBCommand(cmd.Cmd):
     prompt = '(hbnb)  '
-    intro = "Welcome! Type ? to list commands"
 
     def do_EOF(self, line):
         """Exits console"""
