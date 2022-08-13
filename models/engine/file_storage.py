@@ -2,6 +2,23 @@
 
 import json
 import os
+from models.base_model import BaseModel
+from models.user import User
+from models.place import Place
+from models.state import State
+from models.city import City
+from models.amenity import Amenity
+from models.review import Review
+
+class_dict = {
+    "BaseModel": BaseModel,
+    "User": User,
+    "Place": Place,
+    "Amenity": Amenity,
+    "City": City,
+    "Review": Review,
+    "State": State
+}
 
 
 class FileStorage:
@@ -30,27 +47,6 @@ class FileStorage:
         #    new_dict[key] = obj.to_dict()
         with open(type(self).__file_path, "w", encoding='utf-8') as file:
             json.dump(new_dict, file)
-
-    def class_dict(self):
-        """Returns a dictionary of valid classes and their references."""
-        from models.base_model import BaseModel
-        from models.user import User
-        from models.place import Place
-        from models.state import State
-        from models.city import City
-        from models.amenity import Amenity
-        from models.review import Review
-
-        class_dict = {
-            "BaseModel": BaseModel,
-            "User": User,
-            "Place": Place,
-            "Amenity": Amenity,
-            "City": City,
-            "Review": Review,
-            "State": State
-        }
-        return class_dict
 
     def reload(self):
         """Deserializes the JSON file to __objects if it exists"""
