@@ -15,14 +15,14 @@ from models.amenity import Amenity
 from models.review import Review
 
 class_home = {
-            "BaseModel": BaseModel,
-            "User": User,
-            "Place": Place,
-            "Amenity": Amenity,
-            "City": City,
-            "Review": Review,
-            "State": State
-            }
+    "BaseModel": BaseModel,
+    "User": User,
+    "Place": Place,
+    "Amenity": Amenity,
+    "City": City,
+    "Review": Review,
+    "State": State
+}
 
 
 class HBNBCommand(cmd.Cmd):

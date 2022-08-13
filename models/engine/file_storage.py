@@ -49,7 +49,7 @@ class FileStorage:
             "City": City,
             "Review": Review,
             "State": State
-            }
+        }
         return class_dict
 
     def reload(self):
@@ -59,7 +59,7 @@ class FileStorage:
                 with open(type(self).__file_path, "r", encoding='utf-8') as file:
                     new_obj = json.load(file)
                     for key, val in new_obj.items():
-                        obj = self.class_dict([val['__class__']](**val))
+                        obj = self.class_dict[val['__class__']](**val)
                         type(self).__objects[key] = obj
             except Exception:
                 pass
