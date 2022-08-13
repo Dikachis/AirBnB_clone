@@ -24,6 +24,7 @@ class_home = {
             "State": State
             }
 
+
 class HBNBCommand(cmd.Cmd):
     prompt = '(hbnb)  '
     intro = "Welcome! Type ? to list commands"
