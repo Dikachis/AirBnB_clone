@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 """ Class user """
 
 from models.base_model import BaseModel
@@ -10,7 +10,4 @@ class User(BaseModel):
     password = ""
     first_name = ""
     last_name = ""
-
-    def __init__(self, *args, **kwargs):
-        """initializes user"""
-        super().__init__(*args, **kwargs)
+    
