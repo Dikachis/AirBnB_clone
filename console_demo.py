@@ -3,6 +3,7 @@
 """An interactive shell?"""
 
 import cmd
+from posixpath import split
 import models
 from models.base_model import BaseModel
 from models import storage
@@ -14,15 +15,6 @@ from models.city import City
 from models.amenity import Amenity
 from models.review import Review
 
-class_home = {
-            "BaseModel": BaseModel,
-            "User": User,
-            "Place": Place,
-            "Amenity": Amenity,
-            "City": City,
-            "Review": Review,
-            "State": State
-            }
 
 class HBNBCommand(cmd.Cmd):
     prompt = '(hbnb)  '
@@ -61,13 +53,62 @@ class HBNBCommand(cmd.Cmd):
         else:
             print("** class name missing **")
 
+    # OR
+    # def do_create(self, line):
+    #   """Create command creates a new instance of BaseModell"""
+    #   if not line:
+    #        print("** class name missing **")
+    #    elif line not in storage.class_dict():
+    #        print("** class doesn't exist **")
+    #    else:
+    #        new_obj = eval(line)()
+    #        new_obj.save()
+    #        print(new_obj.id)
+
+    # OR
+    # def do_create(self, line):
+    #    """Creates a new instances of a class"""
+    #    if not line:
+    #        print("** class name missing **")
+    #        return
+
+    #    kclass = globals().get(line, None)
+    #    if kclass is None:
+    #        print("** class doesn't exist **")
+    #        return
+
+    #    obj = kclass()
+    #    obj.save()
+    #    print(obj.id)  # print the id
+
+    # OR
+    # def do_create(self, line):
+        # """Creates a new instances of a class"""
+        # if not line:
+        #    print("** class name missing **")
+        #    return
+
+        # obj = None
+        # if line == "BaseModel":
+        #    obj = BaseModel()
+        # elif line == "User":
+        #    obj = User()
+        # elif line == "State":
+        #    obj = State()
+        # else:
+        #    print("** class doesn't exist **")
+        #    return
+
+        # obj.save()
+        # print(obj.id)
+
     def do_show(self, line):
         """print <class name> <id>"""
         arr = line.split()    # split & assign to varia
 
         if len(arr) < 1:
             print("** class name missing **")
-        elif arr[0] not in class_home:
+        elif arr[0] not in storage.class_dict():
             print("** class doesn't exist **")
         elif len(arr) < 2:
             print("** instance id missing **")
@@ -84,7 +125,7 @@ class HBNBCommand(cmd.Cmd):
         arr = line.split()
         if len(arr) < 1:
             print("** class name missing **")
-        elif arr[0] not in class_home:
+        elif arr[0] not in storage.class_dict():
             print("** class doesn't exist **")
         elif len(arr) < 2:
             print("** instance id missing **")
@@ -105,7 +146,7 @@ class HBNBCommand(cmd.Cmd):
             for key, obj in storage.all().items():
                 new_list.append(str(obj))
             print(new_list)
-        elif line not in class_home:
+        elif line not in storage.class_dict():
             print("** class doesn't exist **")
         else:
             for key, obj in storage.all().items():
@@ -138,13 +179,14 @@ class HBNBCommand(cmd.Cmd):
         if len(arr) < 1:
             print("** class name missing **")
             return
-        elif arr[0] not in class_home:
+        elif arr[0] not in storage.class_dict():
             print("** class doesn't exist **")
             return
         elif len(arr) < 2:
             print("** instance id missing **")
             return
         else:
+            new_dict = storage.all()
             new_str = f"{arr[0]}.{arr[1]}"
             if new_str not in storage.all().keys():
                 print("** no instance found **")

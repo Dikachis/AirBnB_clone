@@ -2,7 +2,16 @@
 ## Background Context
 ### Welcome to the AirBnB clone project!
 Before starting, please read the AirBnB concept page.
-[![]()](https://youtu.be/E12Xc3H2xqo)
+
+### Resources
+* [![]()](https://youtu.be/E12Xc3H2xqo)
+* [HBNB videos](https://www.youtube.com/playlist?list=PLlLHfkTcnvmPOp6jv_89tRpJUMFrP-Wbi)
+* Videos showing examples of how various parts of the project work, listed below:
+* [Holberton Airbnb overview](https://www.youtube.com/watch?v=QTwmCB_AWqI)
+* [The Airbnb Console](https://www.youtube.com/watch?v=jeJwRB33YNg)
+* [Airbnb ORM](https://www.youtube.com/watch?v=ZwCD8cNZk9U)
+* [Airbnb API](https://www.youtube.com/watch?v=LrQhULlFJdU)
+* [Final product](https://www.youtube.com/watch?v=m-cfupVumos)
 ##### First step: Write a command interpreter to manage your AirBnB objects.
 This is the first step towards building your first full web application: the AirBnB clone. This first step is very important because you will use what you build during this project with all other following projects: HTML/CSS templating, database storage, API, front-end integration…
 
