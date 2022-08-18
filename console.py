@@ -3,6 +3,7 @@
 """An interactive shell?"""
 
 import cmd
+import re
 import models
 from models.base_model import BaseModel
 from models import storage
@@ -98,21 +99,37 @@ class HBNBCommand(cmd.Cmd):
             #    del (storage.all()[new_str])
                 storage.save()
 
+    # def do_all(self, line):
+    #    """ Print all instances in string representation """
+    #    new_list = []
+
+    #    if not line:
+    #        for key, obj in storage.all().items():
+    #            new_list.append(str(obj))
+    #        print(new_list)
+    #    elif line not in class_home:
+    #        print("** class doesn't exist **")
+    #    else:
+    #        for key, obj in storage.all().items():
+    #            if obj.__class__.__name__ == line:
+    #                new_list.append(str(obj))
+    #        print(new_list)
+
     def do_all(self, line):
         """ Print all instances in string representation """
-        new_list = []
-
-        if not line:
-            for key, obj in storage.all().items():
-                new_list.append(str(obj))
-            print(new_list)
-        elif line not in class_home:
-            print("** class doesn't exist **")
+        objects = []
+        if line == "":
+            print([str(value) for key, value in storage.all().items()])
         else:
-            for key, obj in storage.all().items():
-                if obj.__class__.__name__ == line:
-                    new_list.append(str(obj))
-            print(new_list)
+            st = line.split(" ")
+            if st[0] not in class_home:
+                print("** class doesn't exist **")
+            else:
+                for key, value in storage.all().items():
+                    clas = key.split(".")
+                    if clas[0] == st[0]:
+                        objects.append(str(value))
+                print(objects)
 
     # def do_all(self, line):
     #    """ Print all instances in string representation """
@@ -158,6 +175,49 @@ class HBNBCommand(cmd.Cmd):
             else:
                 setattr(storage.all()[new_str], arr[2], arr[3])
                 storage.save()
+
+    def do_count(self, line):
+        """Print the count all class instances"""
+        kclass = globals().get(line, None)
+        if kclass is None:
+            print("** class doesn't exist **")
+            return
+        count = 0
+        for obj in storage.all().values():
+            if obj.__class__.__name__ == line:
+                count += 1
+        print(count)
+
+    def default(self, line):
+        if line is None:
+            return
+
+        cmdPattern ="^([A-Za-z]+)\.([a-z]+)\(([^(]*)\)"
+        paramsPattern = """^"([^"]+)"(?:,\s*(?:"([^"]+)"|(\{[^}]+\}))(?:,\s*(?:("?[^"]+"?)))?)?"""
+        m = re.match(cmdPattern, line)
+        if not m:
+            super().default(line)
+            return
+        mName, method, params = m.groups()
+        m = re.match(paramsPattern, params)
+        params = [item for item in m.groups() if item] if m else []
+
+        cmd = " ".join([mName] + params)
+
+        if method == 'all':
+            return self.do_all(cmd)
+
+        if method == 'count':
+            return self.do_count(cmd)
+
+        if method == 'show':
+            return self.do_show(cmd)
+
+        if method == 'destroy':
+            return self.do_destroy(cmd)
+
+        if method == 'update':
+            return self.do_update(cmd)
 
 
 if __name__ == '__main__':
