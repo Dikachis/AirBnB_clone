@@ -154,5 +154,5 @@ guillaume@ubuntu:~/AirBnB$ ./console.py
 ```
 
 # Authors
-- Okpara Onyedikachi
+- Okpara Onyedikachi G
 - Moses Odunosho
