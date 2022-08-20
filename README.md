@@ -1,5 +1,5 @@
 
-## <p align="center" width=150px height=100px>![alt text](https://github.com/Dikachis/AirBnB_clone/blob/main/web_static/images/65f4a1dd9c51265f49d0.png?raw=true)</p>
+## <p align="center">![alt text](https://github.com/Dikachis/AirBnB_clone/blob/main/web_static/images/65f4a1dd9c51265f49d0.png?raw=true)</p>
 ## Description of the project
 The ALX B&B sums up the implementation of my four months of studies at the ALX - the fullstack software engineering program.
 The goal of the project is to deploy a replica of the [Airbnb Website](https://www.airbnb.com/) using my server. The final version of this project will have:
