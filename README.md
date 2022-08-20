@@ -1,5 +1,5 @@
 # 0x00. AirBnB clone - The console
-Creation of a command interpreter to manage the hbnb ojects
+**Creation of a command interpreter to manage the hbnb projects**
 ## <p align="center">![alt text](https://github.com/Dikachis/AirBnB_clone/blob/main/web_static/images/65f4a1dd9c51265f49d0.png?raw=true)</p>
 
 ## Description of the project
