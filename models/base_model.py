@@ -66,9 +66,9 @@ class BaseModel:
         return my_dict
         # my_dict = dict()
         # my_dict['__class__'] = self.__class__.__name__
-        #for key, value in self.__dict__.items():
+        # for key, value in self.__dict__.items():
         #    if type(value) is datetime:
         #        my_dict[key] = value.isoformat()
         #    else:
         #        my_dict[key] = value
-        #return my_dict
+        # return my_dict

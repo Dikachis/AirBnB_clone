@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-#!/usr/bin/python3
 """
 Serializes instances to a JSON file and
 deserializes JSON file to instances.
@@ -59,14 +58,14 @@ class FileStorage:
             json.dump(new_dict, file)
             # OR
             # with open(type(self).__file_path, "w", encoding="utf-8") as file:
-            #    json.dump([obj.to_dict() for obj in self.all().values()], file)
+            #   json.dump([obj.to_dict() for obj in self.all().values()], file)
 
     def reload(self):
         """Deserializes the JSON file to __objects if it exists"""
         if os.path.exists(type(self).__file_path) is True:
             return
             try:
-                with open(type(self).__file_path, "r", encoding='utf-8') as file:
+                with open(type(self).__file_path, "r") as file:
                     new_obj = json.load(file)
                     for key, val in new_obj.items():
                         obj = self.class_dict[val['__class__']](**val)
